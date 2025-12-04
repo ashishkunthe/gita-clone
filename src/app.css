@@ -1,4 +1,3 @@
-/* RESET DEFAULT VITE STYLES COMPLETELY */
 * {
   margin: 0;
   padding: 0;
@@ -8,20 +7,334 @@
 html,
 body {
   width: 100%;
-  height: 100%;
-  background: #faf4e6;
-  font-family: serif;
-  color: #333;
+  overflow-x: hidden;
 }
 
-#app {
+/* -------------------------------
+   NAVBAR
+-------------------------------- */
+.top-nav {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  background: white;
+}
+
+.nav-logo {
+  height: 45px;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.search {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-center ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.nav-center li {
+  font-family: "Times New Roman", serif;
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+
+/* -------------------------------
+   PIXEL STRIP (top gradient band)
+-------------------------------- */
+.pixel-strip {
+  width: 100%;
+  height: 70px;
+  background: url("/header-divider.png") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* -------------------------------
+   HERO SECTION
+-------------------------------- */
+.hero-wrapper {
+  position: relative;
+  height: 540px;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Title banner overlay */
+.title-banner {
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  z-index: 5;
+
+  background: rgba(255, 255, 255, 0.45);
+  padding: 35px 0;
+  text-align: center;
+}
+
+.title-banner h1 {
+  font-size: 95px;
+  font-family: Georgia, serif;
+  letter-spacing: 6px;
+  color: #2f3d31;
+  font-weight: normal;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Full hero image */
+.hero-image {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
+  background: url("/gita_banner.png") center top/cover no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-a,
-button {
-  all: unset;
+/* Book that overlaps bottom */
+.book-img {
+  width: 230px;
+  position: absolute;
+  left: 50%;
+  bottom: -110px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  color: #b92d2d;
+  font-family: serif;
+  padding: 15px 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.back-btn:hover {
+  color: #8b1f1f;
+  text-decoration: underline;
+}
+
+/* CHAPTER TITLE */
+.chapter-title {
+  text-align: center;
+  font-size: 28px;
+  font-family: Georgia, serif;
+  color: #b92d2d;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  position: relative;
+}
+
+.chapter-title::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 2px;
+  background: #b92d2d;
+  margin: 8px auto 0;
+}
+
+/* VERSE LABEL */
+.verse-label {
+  width: 90%;
+  margin: 30px auto 10px;
+  font-family: serif;
+  font-size: 18px;
+  color: #b92d2d;
+  padding-left: 10px;
+  position: relative;
+}
+
+.verse-label::before,
+.verse-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #b92d2d;
+}
+
+.verse-label::before {
+  top: -10px;
+}
+
+.verse-label::after {
+  bottom: -10px;
+}
+
+/* GRID AREA */
+.verse-grid {
+  margin: 40px auto;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px 20px;
+  justify-items: center;
+}
+
+/* SCROLL CARD */
+.scroll-card {
+  width: 160px;
+  height: 260px;
+  background: url("/scroll-bg.png") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.scroll-card:hover {
+  transform: scale(1.05);
+}
+
+/* Verse number */
+.verse-number {
+  color: white;
+  font-size: 26px;
+  font-family: serif;
+  text-shadow: 2px 2px 3px black;
+}
+
+/* Play button container */
+.play-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Play image inside the button */
+.play-btn img {
+  width: 26px; /* adjust until it matches original size */
+  height: 26px;
+  pointer-events: none;
+}
+
+.play-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.15);
+}
+
+.footer-section {
+  background: #3e4939; /* Exact original color */
+  padding: 50px 0 60px;
+  text-align: center;
+  position: relative;
+  color: #e6d8b7;
+  font-family: serif;
+}
+
+/* CONNECT SECTION */
+.connect-box {
+  margin-bottom: 25px;
+}
+
+.connect-title {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: inline-flex;
+  gap: 12px;
+  margin-left: 10px;
+}
+
+.icon-circle {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #e6d8b7;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.icon-circle:hover {
+  background: #e6d8b7;
+  color: #3e4939;
+}
+
+/* CENTER LOGO */
+.footer-logo {
+  width: 95px;
+  height: auto;
+  margin: 20px 0 10px;
+}
+
+/* MAIN TITLE */
+.footer-title {
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: #e6d8b7;
+  margin-bottom: 10px;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  font-size: 15px;
+  color: #d2c39e;
+  margin-bottom: 5px;
+}
+
+/* LINK */
+.footer-link {
+  font-size: 15px;
+  color: #cbb992;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* SCROLL BUTTON */
+.scroll-up-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  background: #212921;
+  color: white;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.scroll-up-btn:hover {
+  transform: scale(1.1);
 }
