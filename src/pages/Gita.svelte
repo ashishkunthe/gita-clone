@@ -8,25 +8,42 @@
   let selectedVerse = null;
   let verseData = null;
 
+  // async function loadVerses() {
+  //   try {
+  //     const url = `/api/api/geeta.php?q=${chapter}`;
+  //     console.log("FETCH:", url);
+
+  //     const res = await fetch(url);
+  //     const json = await res.json();
+
+  //     console.log("API RAW:", json);
+
+  //     // FIX: real verse array is inside json.data
+  //     verses = json.data;
+
+  //     console.log("VERSES LOADED:", verses);
+
+  //   } catch (err) {
+  //     console.error("API ERROR:", err);
+  //   }
+  // }
   async function loadVerses() {
-    try {
-      const url = `/api/api/geeta.php?q=${chapter}`;
-      console.log("FETCH:", url);
+  try {
+    const url = `https://sanskrit.ie/api/geeta.php?q=${chapter}`;
+    console.log("FETCH:", url);
 
-      const res = await fetch(url);
-      const json = await res.json();
+    const res = await fetch(url);
+    const json = await res.json();
 
-      console.log("API RAW:", json);
+    console.log("API RAW:", json);
 
-      // FIX: real verse array is inside json.data
-      verses = json.data;
+    verses = json.data;
 
-      console.log("VERSES LOADED:", verses);
-
-    } catch (err) {
-      console.error("API ERROR:", err);
-    }
+  } catch (err) {
+    console.error("API ERROR:", err);
   }
+}
+
 
   loadVerses();
 
