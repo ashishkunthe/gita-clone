@@ -10,7 +10,7 @@
 
   async function loadVerses() {
     try {
-      const url = `/api/api/geeta.php?q=${chapter}`;
+      const url = `/api/geeta.php?q=${chapter}`;
       console.log("FETCH:", url);
 
       const res = await fetch(url);
