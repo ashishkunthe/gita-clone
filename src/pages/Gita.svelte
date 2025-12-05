@@ -1,5 +1,4 @@
 <script>
-  // Extract chapter from hash URL: #/chapter/1
   let chapter = window.location.hash.split("/")[2];
   console.log("CHAPTER:", chapter);
 
@@ -10,7 +9,7 @@
 
   async function loadVerses() {
     try {
-      const url = `/api/geeta.php?q=${chapter}`;
+      const url = `/api/geeta?q=${chapter}`;  
       console.log("FETCH:", url);
 
       const res = await fetch(url);
@@ -18,8 +17,7 @@
 
       console.log("API RAW:", json);
 
-      // FIX: real verse array is inside json.data
-      verses = json.data;
+      verses = json.data;   
 
       console.log("VERSES LOADED:", verses);
 
@@ -32,7 +30,7 @@
 
   function openVerse(v) {
     selectedVerse = v;
-    verseData = verses[v - 1];  // correct indexing
+    verseData = verses[v - 1];
     modalOpen = true;
   }
 
